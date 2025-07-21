@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services - VTH Supply Chain Solutions</title>
+
+    <!-- Memuat Tailwind CSS (untuk banner) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- Base & Layout --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: #374151; /* gray-700 */
+        background-color: #f9fafb; /* gray-50 */
+      }
+
+      .main-wrapper {
+        display: flex;
+        width: 100%;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      /* --- Sidebar --- */
+      .sidebar {
+        width: 380px;
+        background: #ffffff;
+        padding: 50px 40px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+        border-right: 1px solid #e5e7eb; /* gray-200 */
+        flex-shrink: 0;
+      }
+
+      .sidebar h2 {
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 30px;
+        color: #111827; /* gray-900 */
+      }
+
+      .service-nav {
+        list-style: none;
+        margin-bottom: 40px;
+      }
+
+      .service-nav li a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        margin-bottom: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #4b5563; /* gray-600 */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        text-decoration: none;
+      }
+
+      .service-nav li a:hover {
+        background-color: #fee2e2; /* red-50 */
+        color: #b91c1c; /* red-700 */
+      }
+
+      .service-nav li a.active {
+        background-color: #dc2626; /* red-600 */
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+      }
+
+      /* --- DIUBAH: Desain Vertikal untuk Sidebar CTA Box --- */
+      .cta-box {
+        background: #ffffff;
+        border-radius: 12px;
+        text-align: center;
+        overflow: hidden;
+        border: 1px solid #e5e7eb; /* gray-200 */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .cta-box img {
+        width: 100%;
+        height: 325px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .cta-content {
+        padding: 30px;
+      }
+
+      .cta-content h3 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #111827; /* gray-900 */
+      }
+
+      .cta-content p {
+        color: #6b7280; /* gray-500 */
+        margin-bottom: 25px;
+        font-size: 15px;
+      }
+
+      .cta-button {
+        background: #dc2626; /* red-600 */
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        background: #b91c1c; /* red-700 */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(220, 38, 38, 0.3);
+      }
+
+      /* --- Main Content --- */
+      .main-content {
+        flex: 1;
+        padding: 60px 70px;
+      }
+
+      /* --- Carousel --- */
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 450px; /* Adjusted height */
+        margin: 40px 0 60px 0;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .carousel-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .carousel-slide.active {
+        opacity: 1;
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .carousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+      }
+
+      .carousel-nav:hover {
+        background: rgba(0, 0, 0, 0.6);
+      }
+
+      .carousel-prev {
+        left: 16px;
+      }
+      .carousel-next {
+        right: 16px;
+      }
+
+      .carousel-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 10;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.4s ease;
+      }
+
+      .dot.active {
+        background: white;
+        width: 25px;
+        border-radius: 5px;
+      }
+
+      /* --- Content Sections --- */
+      .section {
+        margin-bottom: 60px;
+        padding-top: 20px; /* For scroll spy offset */
+      }
+
+      .section-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: #111827; /* gray-900 */
+        margin-bottom: 16px;
+      }
+
+      .section-description,
+      .section-description-intro,
+      .section-description-more {
+        font-size: 18px;
+        color: #4b5563; /* gray-600 */
+        line-height: 1.7;
+        max-width: 800px;
+      }
+
+      /* Custom Transport Section */
+      .transport-section {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 16px;
+        margin-top: 40px;
+        border: 1px solid #e5e7eb; /* gray-200 */
+      }
+
+      .fleet-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        color: #1f2937; /* gray-800 */
+      }
+
+      .fleet-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .fleet-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .fleet-bullet {
+        width: 36px;
+        height: 36px;
+        background: #fee2e2; /* red-50 */
+        color: #dc2626; /* red-600 */
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .fleet-item-content h5 {
+        font-weight: 600;
+        color: #1f2937; /* gray-800 */
+        margin-bottom: 2px;
+      }
+
+      .fleet-item-content p {
+        color: #6b7280; /* gray-500 */
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      /* Pricing Section */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .pricing-card {
+        background: white;
+        border: 1px solid #e5e7eb; /* gray-200 */
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        border-color: #dc2626; /* red-600 */
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      }
+
+      .pricing-card h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827; /* gray-900 */
+        margin-bottom: 10px;
+      }
+
+      .pricing-card p {
+        color: #6b7280; /* gray-500 */
+        line-height: 1.6;
+      }
+
+      /* Desain Interaktif untuk EV Section */
+      .ev-section-interactive {
+        background-color: #f8fafc; /* slate-50 */
+        padding: 50px;
+        border-radius: 16px;
+        border: 1px solid #e5e7eb; /* gray-200 */
+      }
+
+      .ev-section-interactive .section-title {
+        font-size: 32px;
+      }
+
+      #more-ev-text {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+      }
+
+      #more-ev-text p {
+        padding-top: 16px;
+      }
+
+      .read-more-btn {
+        background: none;
+        border: none;
+        color: #dc2626; /* red-600 */
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: gap 0.3s ease;
+      }
+
+      .read-more-btn:hover {
+        gap: 8px;
+      }
+
+      .read-more-btn .arrow {
+        transition: transform 0.3s ease;
+      }
+
+      .read-more-btn.less .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Final CTA Section */
+      .final-cta {
+        background: #1f2937; /* gray-800 */
+        color: white;
+        padding: 60px;
+        border-radius: 16px;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .final-cta h2 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        font-weight: 800;
+      }
+
+      .final-cta p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        opacity: 0.8;
+        line-height: 1.7;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .main-wrapper {
+          flex-direction: column;
+        }
+        .sidebar {
+          width: 100%;
+          position: static;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid #e5e7eb;
+        }
+        .main-content {
+          padding: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          padding: 30px 20px;
+        }
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-title {
+          font-size: 30px;
+        }
+        .carousel-container {
+          height: 300px;
+        }
+        .ev-section-interactive {
+          padding: 30px;
+        }
+        .ev-section-interactive .section-title {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Awal Section Banner (Menggunakan Tailwind CSS) -->
+    <section
+      class="relative bg-cover bg-center text-white"
+      style="
+        background-image: url('https://23july.hostlin.com/tranzix/wp-content/uploads/2022/08/Service-details-1.jpg');
+      "
+    >
+      <!-- Lapisan Gelap (Overlay) -->
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+
+      <!-- Konten Banner -->
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-[450px] items-center">
+          <div class="w-full max-w-3xl">
+            <!-- Judul Utama -->
+            <h1 class="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
+              Our Service
+            </h1>
+            <!-- Breadcrumbs -->
+            <p class="mt-4 text-base md:text-lg">
+              <a href="#" class="hover:underline">Home</a>
+              <span class="mx-2">&rsaquo;</span>
+              <span>Our Service</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Section Banner -->
+
+    <!-- Awal Konten Utama dengan Sidebar (Menggunakan CSS Kustom) -->
+    <div class="main-wrapper">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>All Services</h2>
+        <!-- Daftar layanan diperbarui -->
+        <ul class="service-nav">
+          <li>
+            <a href="#custom-transport" class="active">
+              <span>Custom transport solutions</span>
+            </a>
+          </li>
+          <li>
+            <!-- Tautan ini dapat diubah menjadi halaman lain nanti, misal: "warehouse.html" -->
+            <a href="#">
+              <span>Warehouse & 3PL</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Inventory Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Packaging Solutions</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span>Freight Forwarding</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- DIUBAH: Desain Vertikal untuk CTA Box -->
+        <div class="cta-box">
+          <img
+            src="https://demo.ovatheme.com/transflash/wp-content/uploads/2021/12/contact-card.jpg"
+            alt=""
+          />
+          <div class="cta-content">
+            <h3>Need Any Help?</h3>
+            <p>Contact our team for a special offer.</p>
+            <a href="#contact" class="cta-button"> Contact Us </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Hero Section -->
+        <section class="section" id="hero">
+          <h1 class="section-title">VTH Supply Chain Solutions</h1>
+          <p class="section-description">
+            Our transport and logistics services are fast, efficient, and
+            reliable, even under the most challenging circumstances. We deliver
+            goods on time across Australia and operate with our own fleet and
+            partner networks.
+          </p>
+        </section>
+
+        <!-- Image Carousel dengan gambar baru -->
+        <div class="carousel-container">
+          <div class="carousel-slide active">
+            <img
+              src="https://austlogistics.com.au/wp-content/uploads/2022/06/industry-facts.jpg"
+              alt="Fakta industri logistik"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://austlogistics.com.au/wp-content/uploads/2022/06/our-policy-committees.jpg"
+              alt="Komite kebijakan kami"
+            />
+          </div>
+          <div class="carousel-slide">
+            <img
+              src="https://austlogistics.com.au/wp-content/uploads/2024/03/LAURITZ_AL7692_258_LoRes.jpg"
+              alt="Truk logistik di jalan"
+            />
+          </div>
+
+          <button class="carousel-nav carousel-prev">‹</button>
+          <button class="carousel-nav carousel-next">›</button>
+
+          <div class="carousel-dots"></div>
+        </div>
+
+        <!-- Custom Transport Solutions -->
+        <section class="section" id="custom-transport">
+          <p class="section-description">
+            At VTH, we provide tailored transport solutions to meet your unique
+            requirements. We are committed to delivering the most suitable
+            services.
+          </p>
+          <div class="transport-section">
+            <h3 class="fleet-title">Our Diverse Fleet</h3>
+            <ul class="fleet-list">
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>Sprinter Vans</h5>
+                  <p>Ideal for quick urban deliveries.</p>
+                </div>
+              </li>
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>Box Trucks</h5>
+                  <p>
+                    Accessible with a standard driver's license, perfect for
+                    larger loads.
+                  </p>
+                </div>
+              </li>
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>EV Box Trucks</h5>
+                  <p>Sustainable transport without compromising performance.</p>
+                </div>
+              </li>
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1z"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>Rigid Trucks</h5>
+                  <p>Increased capacity for more substantial freight needs.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Flexible Pricing Options -->
+        <section class="section" id="pricing">
+          <h2 class="section-title">Flexible Pricing Options</h2>
+          <p class="section-description">
+            We offer competitive rates designed for various budgets and project
+            scopes.
+          </p>
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <h4>Hourly Rates</h4>
+              <p>For short-term needs or unpredictable schedules.</p>
+            </div>
+            <div class="pricing-card">
+              <h4>Flat Rates</h4>
+              <p>Ideal for set routes and consistent deliveries.</p>
+            </div>
+            <div class="pricing-card">
+              <h4>Per Unit Rates</h4>
+              <p>
+                Perfect for projects based on volume or number of deliveries.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Desain Interaktif untuk EV Services -->
+        <section class="section" id="ev-services">
+          <div class="ev-section-interactive">
+            <h2 class="section-title">Eco-Friendly EV Services</h2>
+            <div class="text-content">
+              <p class="section-description-intro">
+                At VTH Supply Chain Solutions, we are committed to
+                sustainability and reducing our carbon footprint. Our electric
+                vehicle (EV) service offers an innovative transportation
+                solution designed for environmentally-conscious businesses.
+              </p>
+              <div id="more-ev-text">
+                <p class="section-description-more">
+                  With a fleet of cutting-edge EVs, we provide both the truck
+                  and a skilled driver, ensuring your goods are transported
+                  efficiently while minimizing emissions. Additionally, we offer
+                  customizable branding on our trucks, allowing you to showcase
+                  your company's identity while promoting sustainability. This
+                  service not only meets the growing demand for greener
+                  logistics but also aligns with our clients' sustainability
+                  goals. As we look to the future, VTH is dedicated to
+                  integrating eco-friendly practices into all aspects of our
+                  operations, and our EV service is a key part of this vision.
+                </p>
+              </div>
+            </div>
+            <button id="ev-read-more-btn" class="read-more-btn">
+              <span>Read More</span>
+              <span class="arrow">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section" id="contact">
+          <div class="final-cta">
+            <h2>Make a Positive Impact Today!</h2>
+            <p>
+              Choose our EV service for your logistics needs and join us in
+              creating a more sustainable future.
+            </p>
+            <a href="#contact-form" class="cta-button"> Get a Quote </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Carousel Functionality ---
+        const slides = document.querySelectorAll(".carousel-slide");
+        const nextBtn = document.querySelector(".carousel-next");
+        const prevBtn = document.querySelector(".carousel-prev");
+        const dotsContainer = document.querySelector(".carousel-dots");
+        let currentSlide = 0;
+        let slideInterval;
+
+        function initCarousel() {
+          if (slides.length === 0 || !nextBtn || !prevBtn || !dotsContainer)
+            return;
+
+          slides.forEach((_, i) => {
+            const dot = document.createElement("button");
+            dot.classList.add("dot");
+            dot.addEventListener("click", () => {
+              goToSlide(i);
+              resetInterval();
+            });
+            dotsContainer.appendChild(dot);
+          });
+
+          goToSlide(0);
+          startInterval();
+        }
+
+        function goToSlide(slideNumber) {
+          if (slides.length === 0) return;
+          slides[currentSlide].classList.remove("active");
+          if (dotsContainer.children[currentSlide]) {
+            dotsContainer.children[currentSlide].classList.remove("active");
+          }
+
+          currentSlide = (slideNumber + slides.length) % slides.length;
+
+          slides[currentSlide].classList.add("active");
+          if (dotsContainer.children[currentSlide]) {
+            dotsContainer.children[currentSlide].classList.add("active");
+          }
+        }
+
+        function startInterval() {
+          slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+          }, 5000);
+        }
+
+        function resetInterval() {
+          clearInterval(slideInterval);
+          startInterval();
+        }
+
+        if (nextBtn && prevBtn) {
+          nextBtn.addEventListener("click", () => {
+            goToSlide(currentSlide + 1);
+            resetInterval();
+          });
+          prevBtn.addEventListener("click", () => {
+            goToSlide(currentSlide - 1);
+            resetInterval();
+          });
+        }
+
+        initCarousel();
+
+        // --- Fungsionalitas untuk Tombol "Read More" ---
+        const evReadMoreBtn = document.getElementById("ev-read-more-btn");
+        const moreEvText = document.getElementById("more-ev-text");
+
+        if (evReadMoreBtn && moreEvText) {
+          evReadMoreBtn.addEventListener("click", function () {
+            const isShown = moreEvText.style.maxHeight;
+
+            if (isShown && moreEvText.style.maxHeight !== "0px") {
+              // Collapse the text
+              moreEvText.style.maxHeight = "0px";
+              this.classList.remove("less");
+              this.querySelector("span:first-child").textContent = "Read More";
+            } else {
+              // Expand the text
+              moreEvText.style.maxHeight = moreEvText.scrollHeight + "px";
+              this.classList.add("less");
+              this.querySelector("span:first-child").textContent = "Read Less";
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About VTH Supply Chain Solutions</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Custom Styles & Animations */
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Custom animation for elements fading in on scroll */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Class to apply the animation */
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      /* Ensure animated elements start as invisible */
+      .section-animate {
+        opacity: 0;
+      }
+
+      /* Custom style for the list bullets for a cleaner look */
+      .custom-list li::before {
+        content: "✓";
+        color: #dc2626; /* Red-600 from Tailwind's palette */
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+
+      /* Transition for image slider */
+      .slider-image {
+        transition: opacity 0.8s ease-in-out;
+      }
+
+      /* Styling for the dashed line connecting service items */
+      .service-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 48px;
+        height: calc(100% + 1.5rem); /* Adjusted height for spacing */
+        width: 2px;
+        border-left: 2px dashed #d1d5db; /* Gray-300 */
+        z-index: 0;
+      }
+
+      .service-icon-wrapper {
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-700">
+    <!-- Loading Bar -->
+    <div
+      id="loadingBar"
+      class="fixed top-0 left-0 h-1 bg-red-600 z-50 transition-all duration-500 ease-out"
+    ></div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content">
+      <!-- 1. Banner Section -->
+      <header
+        class="relative bg-gray-800"
+        style="
+          background-image: url('https://demo.ovatheme.com/transflash/wp-content/uploads/2021/11/post-3.jpg');
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+
+        <div class="relative container mx-auto px-6 py-32 md:py-48 text-left">
+          <h1
+            class="text-5xl md:text-7xl font-extrabold text-white tracking-tight"
+          >
+            About Us
+          </h1>
+          <p class="mt-4 text-lg text-gray-200">
+            Home
+            <span class="mx-2 text-red-500 font-semibold">&rsaquo;</span> About
+            Us
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <!-- 2. Our Journey Section (New Design) -->
+        <section class="section-animate py-16 sm:py-24 bg-white">
+          <div class="container mx-auto px-4">
+            <div
+              class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
+            >
+              <!-- Left Column: Content -->
+              <div class="w-full lg:w-7/12 xl:w-1/2">
+                <span
+                  class="text-red-600 font-semibold uppercase tracking-wider"
+                  >Our Journey</span
+                >
+                <h1
+                  class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight"
+                >
+                  Established in 2012 in Melbourne, Australia
+                </h1>
+                <p class="text-gray-600 text-base md:text-lg mb-8">
+                  VTH Supply Chain Solutions began with a humble fleet of just
+                  four vans. Over the years, we have strategically grown to over
+                  150 vehicles nationwide, providing a wide range of services to
+                  meet our clients' needs.
+                </p>
+
+                <!-- Services List -->
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                  Our Services Include
+                </h2>
+                <div class="space-y-6">
+                  <!-- Service Item 1 -->
+                  <div class="relative pl-16 service-item">
+                    <div class="absolute left-0 top-0 service-icon-wrapper">
+                      <div
+                        class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-6 h-6 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">
+                      Warehouse and 3PL logistics
+                    </h3>
+                  </div>
+                  <!-- Service Item 2 -->
+                  <div class="relative pl-16 service-item">
+                    <div class="absolute left-0 top-0 service-icon-wrapper">
+                      <div
+                        class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-6 h-6 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">
+                      Inventory management
+                    </h3>
+                  </div>
+                  <!-- Service Item 3 -->
+                  <div class="relative pl-16 service-item">
+                    <div class="absolute left-0 top-0 service-icon-wrapper">
+                      <div
+                        class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-6 h-6 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">
+                      Packaging
+                    </h3>
+                  </div>
+                  <!-- Service Item 4 -->
+                  <div class="relative pl-16">
+                    <div class="absolute left-0 top-0 service-icon-wrapper">
+                      <div
+                        class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-6 h-6 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"
+                          ></path>
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2 2h8a1 1 0 001-1zM3 11h10M16 16l4-4m0 0l-4-4m4 4H9"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">
+                      Freight forwarding
+                    </h3>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Image -->
+              <div
+                class="w-full lg:w-5/12 xl:w-1/2 flex items-center justify-center p-8"
+              >
+                <img
+                  src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-design-3.png"
+                  alt="VTH Solution team member in a warehouse"
+                  class="w-full h-auto max-w-md object-cover rounded-2xl shadow-xl transition-transform duration-300 ease-in-out hover:scale-105"
+                  onerror="this.onerror=null;this.src='https://placehold.co/600x450/e2e8f0/475569?text=Image+Not+Found';"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Eco-Friendly Services Section -->
+        <section
+          class="section-animate py-16 sm:py-24 bg-gray-50 overflow-hidden"
+        >
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+              class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+            >
+              <!-- Image Gallery Column -->
+              <div class="grid grid-cols-4 gap-4">
+                <!-- Thumbnails -->
+                <div class="col-span-1 flex flex-col gap-4">
+                  <img
+                    src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-288-x-400-px-288-x-380-px-288-x-370-px.png"
+                    alt="Thumbnail 1"
+                    class="gallery-thumb w-full h-auto object-cover rounded-lg cursor-pointer border-2 border-red-600 shadow-md"
+                    onclick="changeImage(this)"
+                  />
+                  <img
+                    src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-design-5.png"
+                    alt="Thumbnail 2"
+                    class="gallery-thumb w-full h-auto object-cover rounded-lg cursor-pointer border-2 border-transparent"
+                    onclick="changeImage(this)"
+                  />
+                  <img
+                    src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-design-6.png"
+                    alt="Thumbnail 3"
+                    class="gallery-thumb w-full h-auto object-cover rounded-lg cursor-pointer border-2 border-transparent"
+                    onclick="changeImage(this)"
+                  />
+                </div>
+                <!-- Main Image -->
+                <div class="col-span-3">
+                  <img
+                    id="main-image"
+                    src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-288-x-400-px-288-x-380-px-288-x-370-px.png"
+                    alt="VTH Eco-Friendly Solutions"
+                    class="w-full h-full object-cover rounded-2xl shadow-2xl"
+                  />
+                </div>
+              </div>
+
+              <!-- Text Content Column -->
+              <div class="text-left">
+                <h2
+                  class="text-base font-semibold text-red-600 uppercase tracking-wider"
+                >
+                  Eco-Friendly Services
+                </h2>
+                <h1
+                  class="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight"
+                >
+                  Revolutionising Sustainability for a Greener Future
+                </h1>
+                <p class="mt-6 text-lg text-gray-600">
+                  In our commitment to sustainability, we proudly introduce our
+                  Eco-Friendly Services. Our focus is on innovative technology
+                  and smart systems that enhance energy efficiency while
+                  reducing environmental impact.
+                </p>
+
+                <ul class="mt-8 space-y-4 text-gray-600 custom-list pl-4">
+                  <li class="flex items-start">
+                    <span class="ml-3"
+                      >Cutting-edge solutions for sustainable logistics and
+                      renewable energy.</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="ml-3"
+                      >Forward-thinking, practical solutions tailored to
+                      Australian needs.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Why Choose Us Section -->
+        <section class="section-animate py-16 sm:py-24 bg-white">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div
+              class="grid grid-cols-1 items-center gap-x-24 gap-y-10 lg:grid-cols-2"
+            >
+              <!-- Left Column: Text and Features -->
+              <div>
+                <h2
+                  class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+                >
+                  Why Choose <span class="text-red-600">VTH?</span>
+                </h2>
+                <p class="mt-4 text-lg leading-8 text-gray-600">
+                  Our strengths and advantages make us different from our
+                  competitors, combining service excellence with a commitment to
+                  a sustainable future.
+                </p>
+
+                <!-- Grid for 6 feature cards -->
+                <div
+                  class="mt-10 grid grid-cols-1 gap-x-8 gap-y-2 sm:grid-cols-2"
+                >
+                  <!-- Feature 1: Deep Understanding -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M13 10V3L4 14h7v7l9-11h-7z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Deep Understanding
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          A deep understanding of our clients' businesses and
+                          objectives.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Feature 2: Quality Service -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Quality Service
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          Delivering high-quality service with the stability and
+                          professionalism you expect.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Feature 3: Experienced Team -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Experienced Team
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          Experienced drivers who excel in road freight and
+                          foster strong relationships with your clients.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Feature 4: Eco-Friendly Services -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10s5 2 5 2l-2.657-5.314m2.657 5.314a8.003 8.003 0 01-5.314-2.657m0 0a8.003 8.003 0 015.314 2.657m-5.314-2.657L6.343 7.343m11.314 11.314a8.003 8.003 0 01-2.657-5.314m2.657 5.314l-5.314-2.657m5.314 2.657a8.003 8.003 0 01-2.657-5.314m2.657 5.314L18.657 13m-2.657 5.657a8.003 8.003 0 01-5.314-2.657"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Eco-Friendly Services
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          Pioneer the outside hire industry with an electric
+                          vehicle (EV) range.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Feature 5: Accelerate Change -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Accelerate Change
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          Accelerate the shift towards eco-friendly
+                          transportation.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Feature 6: Strong Partnerships -->
+                  <div
+                    class="rounded-xl p-4 transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-2xl hover:scale-105 cursor-pointer group"
+                  >
+                    <div class="flex gap-x-4">
+                      <div class="flex-shrink-0">
+                        <div
+                          class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-100 group-hover:bg-red-600"
+                        >
+                          <svg
+                            class="w-5 h-5 text-red-600 group-hover:text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                            ></path>
+                          </svg>
+                        </div>
+                      </div>
+                      <div>
+                        <h3
+                          class="text-lg font-semibold leading-7 text-gray-900"
+                        >
+                          Strong Partnerships
+                        </h3>
+                        <p class="mt-1 text-base leading-7 text-gray-600">
+                          Collaborate with like-minded partners and
+                          stakeholders.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Image -->
+              <div class="relative">
+                <img
+                  src="https://vthsolution.nubevest.net/wp-content/uploads/2025/03/Untitled-design-1.png"
+                  alt="Team collaborating in an office"
+                  class="relative z-10 w-full object-cover rounded-2xl shadow-xl"
+                  style="aspect-ratio: 4/3"
+                  onerror="this.onerror=null;this.src='https://placehold.co/800/600?text=Image+Not+Found';"
+                />
+                <div
+                  class="absolute -right-4 -bottom-4 z-0 h-full w-full rounded-2xl bg-red-600/10 sm:-right-8 sm:-bottom-8"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Loading Bar Animation ---
+        const loadingBar = document.getElementById("loadingBar");
+        loadingBar.style.width = "10%";
+        window.addEventListener("load", function () {
+          loadingBar.style.width = "100%";
+          setTimeout(() => {
+            loadingBar.style.opacity = "0";
+            setTimeout(() => {
+              loadingBar.style.display = "none";
+            }, 500);
+          }, 500);
+        });
+
+        // --- Intersection Observer for Scroll Animations ---
+        const sections = document.querySelectorAll(".section-animate");
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("fade-in-up");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+        sections.forEach((section) => {
+          observer.observe(section);
+        });
+
+        // --- Image Gallery Logic ---
+        const mainImage = document.getElementById("main-image");
+        const thumbnails = document.querySelectorAll(".gallery-thumb");
+
+        window.changeImage = function (thumbnailElement) {
+          // Set main image src to the clicked thumbnail's src
+          mainImage.src = thumbnailElement.src;
+
+          // Update active border style
+          thumbnails.forEach((thumb) => {
+            thumb.classList.remove("border-red-600", "shadow-md");
+            thumb.classList.add("border-transparent");
+          });
+          thumbnailElement.classList.add("border-red-600", "shadow-md");
+          thumbnailElement.classList.remove("border-transparent");
+        };
+      });
+    </script>
+  </body>
+</html>

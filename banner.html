@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VTH Supply Chain Solutions - Australia Wide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Arial, sans-serif;
+        background-color: #ffffff;
+        color: #111827;
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      header {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      nav {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 900;
+        color: #dc2626;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .nav-links a,
+      .nav-links .dropdown-toggle {
+        color: #111827;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+        padding: 9px 14px;
+      }
+
+      .nav-links a:hover,
+      .nav-links .dropdown-toggle:hover {
+        color: #dc2626;
+      }
+
+      /* Dropdown Menu */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-toggle {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        min-width: 240px;
+        z-index: 1001;
+        padding: 10px;
+        border: 1px solid #f3f4f6;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 12px 20px;
+        border-radius: 8px;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: #fef2f2;
+        color: #dc2626;
+      }
+
+      .nav-cta {
+        background: #dc2626;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .nav-cta:hover {
+        background: #b91c1c;
+        transform: translateY(-2px);
+      }
+
+      .menu-toggle {
+        display: none;
+        cursor: pointer;
+      }
+
+      /* Hero Banner */
+      .hero-banner {
+        margin-top: 80px;
+        background: #f9fafb;
+        padding: 120px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        font-size: 64px;
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        color: #111827;
+      }
+
+      .hero-content .highlight {
+        color: #dc2626;
+      }
+
+      .hero-content p {
+        font-size: 22px;
+        line-height: 1.6;
+        color: #4b5563;
+        margin-bottom: 40px;
+        max-width: 600px;
+      }
+
+      .btn-primary {
+        background: #dc2626;
+        color: white;
+        padding: 18px 40px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 18px;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        background: #b91c1c;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+      }
+
+      /* --- UPDATED: Hero Image Slider --- */
+      .hero-image {
+        position: relative;
+        height: 550px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Ensures slides stay within the rounded corners */
+      }
+
+      .hero-slider .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+        z-index: 1;
+      }
+
+      .hero-slider .slide.active {
+        opacity: 1;
+        z-index: 2;
+      }
+
+      /* General Section Styling */
+      .section-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-title {
+        font-size: 48px;
+        font-weight: 900;
+        margin-bottom: 20px;
+        color: #111827;
+      }
+
+      .section-subtitle {
+        font-size: 20px;
+        color: #6b7280;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      /* REVISED: About VTH Section */
+      .about-section {
+        padding: 120px 0;
+        background: #ffffff;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-content h3 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #16a34a; /* Green for VTH GREEN */
+      }
+
+      .about-content p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #4b5563;
+        margin-bottom: 30px;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 30px 20px;
+        background: #f9fafb;
+        border-radius: 16px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .stat-number {
+        font-size: 39px;
+        font-weight: 900;
+        color: #dc2626;
+        margin-bottom: 10px;
+      }
+
+      .stat-label {
+        font-size: 16px;
+        color: #6b7280;
+      }
+
+      /* --- REVISED: Services Section --- */
+      .services-section {
+        padding: 120px 0;
+        background: #f9fafb;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .service-card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: #fca5a5;
+      }
+
+      .service-card .service-icon {
+        margin-bottom: 20px;
+        background-color: #fef2f2;
+        border-radius: 12px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .service-card .service-icon svg {
+        width: 28px;
+        height: 28px;
+        color: #dc2626;
+      }
+
+      .service-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        color: #111827;
+      }
+
+      .service-card p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #4b5563;
+      }
+
+      /* --- NEW: Interactive Sustainability Section --- */
+      .sustainability-section {
+        padding: 120px 0;
+        background: #ffffff;
+      }
+
+      .sustainability-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .sustainability-nav h2 {
+        font-size: 42px;
+        font-weight: 900;
+        line-height: 1.2;
+        margin-bottom: 24px;
+      }
+
+      .sustainability-nav h2 .highlight {
+        color: #dc2626;
+      }
+
+      .sustainability-nav > p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #4b5563;
+        margin-bottom: 40px;
+      }
+
+      .sustainability-tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sustainability-tab {
+        padding: 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        border: 1px solid transparent;
+      }
+
+      .sustainability-tab h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        transition: color 0.3s;
+      }
+
+      .sustainability-tab p {
+        font-size: 15px;
+        color: #6b7280;
+        line-height: 1.6;
+      }
+
+      .sustainability-tab.active {
+        background-color: #fef2f2;
+        border-color: #fca5a5;
+      }
+
+      .sustainability-tab.active h4 {
+        color: #dc2626;
+      }
+
+      .sustainability-content-wrapper {
+        position: relative;
+        min-height: 350px;
+      }
+
+      .sustainability-content {
+        background: #f9fafb;
+        border-radius: 20px;
+        padding: 40px;
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        top: 50%;
+        left: 0;
+        transform: translateY(calc(-50% + 10px));
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out,
+          visibility 0.4s;
+      }
+
+      .sustainability-content.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%);
+      }
+
+      .sustainability-content h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .sustainability-content ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sustainability-content ul li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      .sustainability-content .check-icon {
+        width: 20px;
+        height: 20px;
+        color: #10b981;
+        flex-shrink: 0;
+      }
+
+      /* FINAL: Footer */
+      footer {
+        background: #111827;
+        color: #d1d5db;
+        padding-top: 0;
+      }
+
+      .footer-animation-container {
+        width: 100%;
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+        background: #111827;
+      }
+
+      .animated-logo {
+        position: absolute;
+        left: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #ffffff;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 1px;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
+      }
+
+      .truck-svg {
+        position: absolute;
+        right: -300px;
+        bottom: 25px;
+        width: 280px;
+        height: auto;
+        transform: scaleX(-1);
+      }
+
+      .footer-animation-container.animate .truck-svg {
+        animation: driveTruck 6s ease-in-out forwards;
+      }
+
+      .footer-animation-container.animate .animated-logo {
+        animation: fadeInLogo 0.5s ease-out 6s forwards;
+      }
+
+      @keyframes driveTruck {
+        0% {
+          transform: translateX(0) scaleX(-1);
+        }
+        100% {
+          transform: translateX(calc(-100vw - 300px)) scaleX(-1);
+        }
+      }
+
+      @keyframes fadeInLogo {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 80px 40px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+      }
+
+      .footer-column h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        color: #ffffff;
+      }
+
+      .footer-column p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #9ca3af;
+        margin-bottom: 20px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+      .footer-column ul li {
+        margin-bottom: 15px;
+      }
+      .footer-column ul li a {
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+      }
+      .footer-column ul li a:hover {
+        color: #dc2626;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #374151;
+        padding: 40px;
+        text-align: center;
+        color: #6b7280;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .hero-container,
+        .about-grid,
+        .sustainability-wrapper {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .sustainability-content-wrapper {
+          min-height: 350px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .hero-image {
+          order: -1;
+        }
+        .hero-content h1 {
+          font-size: 48px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 36px;
+        }
+        .hero-content h1 {
+          font-size: 40px;
+        }
+        .hero-content p {
+          font-size: 18px;
+        }
+        .stats-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 60px 40px;
+        }
+        .animated-logo {
+          left: 20px;
+          font-size: 24px;
+        }
+        .sustainability-tabs {
+          flex-direction: row;
+          overflow-x: auto;
+          padding-bottom: 15px;
+        }
+        .sustainability-tab {
+          flex-shrink: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <a href="#" class="logo">VTH</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <div class="dropdown">
+            <span class="dropdown-toggle"
+              >Our Services
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </span>
+            <div class="dropdown-menu">
+              <a href="#services">Custom Transport Solutions</a>
+              <a href="#services">Refrigerated Logistics</a>
+              <a href="#services">Freight Forwarding</a>
+              <a href="#services">3PL Services</a>
+            </div>
+          </div>
+          <a href="#">News</a>
+          <a href="#contact" class="nav-cta">Contact</a>
+        </div>
+        <div class="menu-toggle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>
+            Australia Wide <span class="highlight">Supply Chain</span> Solutions
+          </h1>
+          <p>
+            Your trusted partner in reliable and innovative supply chain
+            solutions. Nationwide bulk and parcel express distribution services.
+          </p>
+          <a href="#contact" class="btn-primary">Get Started</a>
+        </div>
+        <!-- UPDATED Hero Image section with Slider -->
+        <div class="hero-image">
+          <div class="hero-slider">
+            <div
+              class="slide active"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=2070&auto=format&fit=crop');
+              "
+            ></div>
+            <div
+              class="slide"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2073&auto=format&fit=crop');
+              "
+            ></div>
+            <div
+              class="slide"
+              style="
+                background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop');
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVISED About VTH Section -->
+    <section id="about" class="about-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">About VTH Supply Chain Solutions</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-content">
+            <!-- <h3>Introducing <span style="color: #16a34a">VTH GREEN</span></h3> -->
+            <p>
+              We are proud to introduce a new division: VTH GREEN. With our
+              existing national footprint and a fleet of over 150 diesel
+              vehicles, VTH GREEN is committed to minimizing our carbon
+              footprint while supporting our customers' sustainability
+              ambitions.
+            </p>
+            <p>
+              VTH GREEN aims to pioneer the Outside Hire industry by
+              complementing our fleet with an electric vehicle (EV) range. Our
+              goal is to accelerate the transition toward a more eco-friendly
+              transportation landscape through collaboration with like-minded
+              partners and stakeholders.
+            </p>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" data-target="12">0</div>
+              <div class="stat-label">Years of Service</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="500000">0</div>
+              <div class="stat-label">Daily Deliveries</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="180">0</div>
+              <div class="stat-label">Trucks</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVISED Services Section -->
+    <section id="services" class="services-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            Comprehensive logistics solutions tailored to your needs, from
+            custom transport to integrated 3PL services.
+          </p>
+        </div>
+        <div class="services-grid">
+          <!-- Service Card 1: Custom Transport -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"
+                />
+                <path d="M14 9h4l4 4v4h-8v-8Z" />
+                <circle cx="7.5" cy="17.5" r="2.5" />
+                <circle cx="17.5" cy="17.5" r="2.5" />
+              </svg>
+            </div>
+            <h3>Custom Transport</h3>
+            <p>
+              Tailored freight solutions for non-standard, oversized, or
+              sensitive cargo requirements.
+            </p>
+          </div>
+          <!-- Service Card 2: Refrigerated Logistics -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M8 2v2" />
+                <path d="M16 2v2" />
+                <path d="M12 2v8h4v8h-4V2z" />
+                <path
+                  d="M4.2 10.2a6 6 0 0 1 10.35 6.09l-4.16 4.16a2 2 0 0 1-2.82 0L3.4 16.3a6 6 0 0 1 .8-6.1z"
+                />
+                <path d="M12 14v.01" />
+              </svg>
+            </div>
+            <h3>Refrigerated Logistics</h3>
+            <p>
+              Temperature-controlled transport for perishable goods, ensuring
+              freshness and compliance.
+            </p>
+          </div>
+          <!-- Service Card 3: Freight Forwarding -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path
+                  d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                />
+              </svg>
+            </div>
+            <h3>Freight Forwarding</h3>
+            <p>
+              Seamless management of domestic and international freight from
+              origin to destination.
+            </p>
+          </div>
+          <!-- Service Card 4: 3PL Services -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v2"
+                />
+                <path d="M21 14v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path
+                  d="m21.15 11.15-9.19 4.6a2 2 0 0 1-1.92 0L1.85 11.15A2 2 0 0 1 3 10h18a2 2 0 0 1-.85 1.15Z"
+                />
+              </svg>
+            </div>
+            <h3>3PL Services</h3>
+            <p>
+              End-to-end warehousing, inventory management, and order fulfilment
+              solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW Interactive Sustainability Section -->
+    <section id="sustainability" class="sustainability-section">
+      <div class="section-container">
+        <div class="sustainability-wrapper">
+          <div class="sustainability-nav">
+            <h2>Driving <span class="highlight">Sustainability</span></h2>
+            <p>
+              We are dedicated to making a positive impact in the communities we
+              serve. A key part of this commitment is our investment in a
+              cleaner transport future, as we actively pioneer the integration
+              of electric trucks into our Australian fleet. We believe in
+              driving change, not just cargo, and are proud to be at the
+              forefront of a more sustainable logistics industry.
+            </p>
+            <ul class="sustainability-tabs">
+              <li class="sustainability-tab active" data-target="fleet">
+                <h4>Smart Fleet & Logistics</h4>
+                <p>Optimizing every journey to reduce our carbon footprint.</p>
+              </li>
+              <li class="sustainability-tab" data-target="warehousing">
+                <h4>Green Warehousing</h4>
+                <p>Efficient and eco-friendly storage and distribution hubs.</p>
+              </li>
+              <li class="sustainability-tab" data-target="packaging">
+                <h4>Eco-Friendly Packaging</h4>
+                <p>Reducing waste from source to destination.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="sustainability-content-wrapper">
+            <div id="fleet" class="sustainability-content active">
+              <h3>Optimizing Our Fleet</h3>
+              <ul>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Transitioning to a fully electric vehicle (EV) fleet for
+                    last-mile deliveries.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Using AI-powered route optimization to reduce mileage and
+                    fuel consumption by 15%.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Implementing regular, proactive vehicle maintenance to
+                    ensure peak fuel efficiency.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div id="warehousing" class="sustainability-content">
+              <h3>Innovating Our Hubs</h3>
+              <ul>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Installing solar panels on all major warehousing facilities
+                    to generate clean energy.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Utilizing automated sorting systems to reduce energy
+                    consumption per parcel.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Implementing advanced water recycling and rainwater
+                    harvesting programs.</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div id="packaging" class="sustainability-content">
+              <h3>Rethinking Packaging</h3>
+              <ul>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Using satchels and boxes made from 100% recycled and
+                    recyclable materials.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Offering incentives for customers who opt into our minimal
+                    packaging program.</span
+                  >
+                </li>
+                <li>
+                  <svg
+                    class="check-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clip-rule="evenodd"
+                    /></svg
+                  ><span
+                    >Partnering exclusively with suppliers who share our
+                    commitment to sustainability.</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL Footer -->
+    <footer id="contact">
+      <div class="footer-animation-container">
+        <h3 class="animated-logo">VTH</h3>
+        <svg
+          class="truck-svg"
+          viewBox="0 0 900 200"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="truck">
+            <g id="trailer2">
+              <rect
+                x="500"
+                y="10"
+                width="250"
+                height="100"
+                fill="#E5E7EB"
+                stroke="#374151"
+                stroke-width="2"
+              />
+              <rect x="500" y="10" width="125" height="100" fill="#dc2626" />
+              <path d="M 500 10 L 625 110 L 750 10 Z" fill="#111827" />
+              <circle
+                cx="560"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+              <circle
+                cx="680"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+            </g>
+            <g id="trailer1">
+              <rect
+                x="230"
+                y="10"
+                width="250"
+                height="100"
+                fill="#E5E7EB"
+                stroke="#374151"
+                stroke-width="2"
+              />
+              <rect x="230" y="10" width="125" height="100" fill="#dc2626" />
+              <path d="M 230 10 L 355 110 L 480 10 Z" fill="#111827" />
+              <circle
+                cx="290"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+              <circle
+                cx="410"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+            </g>
+            <g id="prime-mover">
+              <path
+                d="M 210 20 L 210 110 L 140 110 L 120 70 L 20 70 L 20 110 L 0 110 L 0 50 L 50 20 Z"
+                fill="#E5E7EB"
+                stroke="#374151"
+                stroke-width="2"
+              />
+              <rect
+                x="50"
+                y="20"
+                width="70"
+                height="50"
+                fill="#d1d5db"
+                stroke="#374151"
+                stroke-width="2"
+              />
+              <circle
+                cx="50"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+              <circle
+                cx="170"
+                cy="120"
+                r="20"
+                fill="#374151"
+                stroke="#111827"
+                stroke-width="4"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="footer-content">
+        <div class="footer-column">
+          <p>
+            Your trusted partner in Australian logistics and delivery solutions.
+          </p>
+          <p>ABN: 12 345 678 901</p>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Custom Transport</a></li>
+            <li><a href="#services">Refrigerated Logistics</a></li>
+            <li><a href="#services">Freight Forwarding</a></li>
+            <li><a href="#services">3PL Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <p>1300 VTH EXP</p>
+          <p>support@vthexpress.com.au</p>
+          <p>Mon - Fri: 8am - 6pm</p>
+          <p>Sat: 9am - 1pm</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 VTH Supply Chain Solutions. All rights reserved. | Privacy
+          Policy | Terms of Service
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- NEW: Hero Image Slider ---
+        const slides = document.querySelectorAll(".hero-slider .slide");
+        let currentSlide = 0;
+        const slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        function nextSlide() {
+          slides[currentSlide].classList.remove("active");
+          currentSlide = (currentSlide + 1) % slides.length;
+          slides[currentSlide].classList.add("active");
+        }
+
+        // Counter Animation
+        const counters = document.querySelectorAll(".stat-number");
+        const speed = 200;
+
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const counter = entry.target;
+                const animate = () => {
+                  const target = +counter.getAttribute("data-target");
+                  const count = +counter.innerText.replace(/,/g, "");
+                  const inc = target / speed;
+
+                  if (count < target) {
+                    let newCount = Math.ceil(count + inc);
+                    if (target > 100000) {
+                      counter.innerText = newCount.toLocaleString("en-US");
+                    } else if (target.toString().includes(".")) {
+                      counter.innerText = (count + inc).toFixed(1);
+                    } else {
+                      counter.innerText = newCount;
+                    }
+                    setTimeout(animate, 15);
+                  } else {
+                    if (target > 100000) {
+                      counter.innerText = target.toLocaleString("en-US") + "+";
+                    } else if (target.toString().includes(".")) {
+                      counter.innerText = target.toFixed(1);
+                    } else {
+                      counter.innerText = target + "+";
+                    }
+                  }
+                };
+                animate();
+                counterObserver.unobserve(counter);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+
+        counters.forEach((counter) => {
+          counterObserver.observe(counter);
+        });
+
+        // Footer Truck Animation
+        const footerAnimationContainer = document.querySelector(
+          ".footer-animation-container"
+        );
+        const footerObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                footerAnimationContainer.classList.add("animate");
+                footerObserver.unobserve(footerAnimationContainer);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        if (footerAnimationContainer) {
+          footerObserver.observe(footerAnimationContainer);
+        }
+
+        // Sustainability Tabs Interaction
+        const tabs = document.querySelectorAll(".sustainability-tab");
+        const contents = document.querySelectorAll(".sustainability-content");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            tabs.forEach((item) => item.classList.remove("active"));
+            contents.forEach((item) => item.classList.remove("active"));
+
+            tab.classList.add("active");
+            const targetId = tab.getAttribute("data-target");
+            const targetContent = document.getElementById(targetId);
+            if (targetContent) {
+              targetContent.classList.add("active");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
