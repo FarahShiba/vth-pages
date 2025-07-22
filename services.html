@@ -90,7 +90,7 @@
         box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
       }
 
-      /* --- DIUBAH: Desain Vertikal untuk Sidebar CTA Box --- */
+      /* --- Desain Vertikal untuk Sidebar CTA Box --- */
       .cta-box {
         background: #ffffff;
         border-radius: 12px;
@@ -100,11 +100,11 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       }
 
-      .cta-box img {
-        width: 100%;
-        height: 325px;
-        object-fit: cover;
-        display: block;
+      .cta-image-container {
+        height: 250px;
+        background-image: url("https://demo.ovatheme.com/transflash/wp-content/uploads/2021/12/contact-card.jpg");
+        background-size: cover;
+        background-position: center 25%;
       }
 
       .cta-content {
@@ -274,8 +274,15 @@
       .fleet-list {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      @media (min-width: 768px) {
+        .fleet-list {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 40px;
+        }
       }
 
       .fleet-item {
@@ -308,39 +315,36 @@
         font-size: 15px;
       }
 
-      /* Pricing Section */
-      .pricing-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-        margin-top: 40px;
-      }
-
-      .pricing-card {
-        background: white;
+      /* DIUBAH: National Solution Section */
+      .national-solution-section {
+        background-color: #ffffff;
         border: 1px solid #e5e7eb; /* gray-200 */
-        border-radius: 12px;
-        padding: 30px;
-        text-align: center;
-        transition: all 0.3s ease;
+        padding: 50px;
+        border-radius: 16px;
       }
 
-      .pricing-card:hover {
-        border-color: #dc2626; /* red-600 */
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      .national-solution-section .section-title {
+        font-size: 32px;
+        position: relative;
+        padding-bottom: 16px;
+        margin-bottom: 24px;
       }
 
-      .pricing-card h4 {
-        font-size: 20px;
-        font-weight: 700;
-        color: #111827; /* gray-900 */
-        margin-bottom: 10px;
+      .national-solution-section .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background-color: #dc2626; /* red-600 */
+        border-radius: 2px;
       }
 
-      .pricing-card p {
-        color: #6b7280; /* gray-500 */
-        line-height: 1.6;
+      .national-solution-section .section-description {
+        font-size: 18px;
+        color: #4b5563; /* gray-600 */
+        max-width: none;
       }
 
       /* Desain Interaktif untuk EV Section */
@@ -437,19 +441,18 @@
         .main-content {
           padding: 30px 20px;
         }
-        .pricing-grid {
-          grid-template-columns: 1fr;
-        }
         .section-title {
           font-size: 30px;
         }
         .carousel-container {
           height: 300px;
         }
-        .ev-section-interactive {
+        .ev-section-interactive,
+        .national-solution-section {
           padding: 30px;
         }
-        .ev-section-interactive .section-title {
+        .ev-section-interactive .section-title,
+        .national-solution-section .section-title {
           font-size: 28px;
         }
       }
@@ -521,12 +524,9 @@
           </li>
         </ul>
 
-        <!-- DIUBAH: Desain Vertikal untuk CTA Box -->
+        <!-- Desain Vertikal untuk CTA Box -->
         <div class="cta-box">
-          <img
-            src="https://demo.ovatheme.com/transflash/wp-content/uploads/2021/12/contact-card.jpg"
-            alt=""
-          />
+          <div class="cta-image-container"></div>
           <div class="cta-content">
             <h3>Need Any Help?</h3>
             <p>Contact our team for a special offer.</p>
@@ -584,6 +584,7 @@
           </p>
           <div class="transport-section">
             <h3 class="fleet-title">Our Diverse Fleet</h3>
+            <!-- Daftar armada diperbarui menjadi 6 item -->
             <ul class="fleet-list">
               <li class="fleet-item">
                 <div class="fleet-bullet">
@@ -609,8 +610,11 @@
                   </svg>
                 </div>
                 <div class="fleet-item-content">
-                  <h5>Sprinter Vans</h5>
-                  <p>Ideal for quick urban deliveries.</p>
+                  <h5>1T/2T Sprinter Vans</h5>
+                  <p>
+                    Ideal for quick urban deliveries, providing flexibility and
+                    efficiency.
+                  </p>
                 </div>
               </li>
               <li class="fleet-item">
@@ -631,10 +635,10 @@
                   </svg>
                 </div>
                 <div class="fleet-item-content">
-                  <h5>Box Trucks</h5>
+                  <h5>4.5T Box Trucks</h5>
                   <p>
-                    Accessible with a standard driver's license, perfect for
-                    larger loads.
+                    Accessible with just a standard driver’s license, perfect
+                    for larger loads.
                   </p>
                 </div>
               </li>
@@ -656,8 +660,12 @@
                   </svg>
                 </div>
                 <div class="fleet-item-content">
-                  <h5>EV Box Trucks</h5>
-                  <p>Sustainable transport without compromising performance.</p>
+                  <h5>4.5T EVBox Trucks</h5>
+                  <p>
+                    Our environmentally-friendly electric vehicles are designed
+                    for sustainable transport without compromising on
+                    performance.
+                  </p>
                 </div>
               </li>
               <li class="fleet-item">
@@ -682,36 +690,78 @@
                   </svg>
                 </div>
                 <div class="fleet-item-content">
-                  <h5>Rigid Trucks</h5>
-                  <p>Increased capacity for more substantial freight needs.</p>
+                  <h5>Rigid Trucks 6T/8T/10T/12T</h5>
+                  <p>
+                    Offering increased capacity for more substantial freight
+                    needs.
+                  </p>
+                </div>
+              </li>
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2h8a2 2 0 002-2v-1a2 2 0 012-2h1.945M7.881 15.304A7.5 7.5 0 0112 13.5a7.5 7.5 0 014.119 1.804M14.25 10.5a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>Semis</h5>
+                  <p>
+                    Suitable for long-haul deliveries and large-scale
+                    transportation.
+                  </p>
+                </div>
+              </li>
+              <li class="fleet-item">
+                <div class="fleet-bullet">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <div class="fleet-item-content">
+                  <h5>EV Rigid Trucks 6T/8T/10T</h5>
+                  <p>
+                    we’re proud to offer a range of all-electric rigid trucks
+                    designed to meet the evolving needs of Australia’s
+                    logistics, construction, and municipal sectors.
+                  </p>
                 </div>
               </li>
             </ul>
           </div>
         </section>
 
-        <!-- Flexible Pricing Options -->
-        <section class="section" id="pricing">
-          <h2 class="section-title">Flexible Pricing Options</h2>
-          <p class="section-description">
-            We offer competitive rates designed for various budgets and project
-            scopes.
-          </p>
-          <div class="pricing-grid">
-            <div class="pricing-card">
-              <h4>Hourly Rates</h4>
-              <p>For short-term needs or unpredictable schedules.</p>
-            </div>
-            <div class="pricing-card">
-              <h4>Flat Rates</h4>
-              <p>Ideal for set routes and consistent deliveries.</p>
-            </div>
-            <div class="pricing-card">
-              <h4>Per Unit Rates</h4>
-              <p>
-                Perfect for projects based on volume or number of deliveries.
-              </p>
-            </div>
+        <!-- DIUBAH: Section "Flexible Pricing" diganti dengan "A National Solution" -->
+        <section class="section" id="national-solution">
+          <div class="national-solution-section">
+            <h2 class="section-title">A National Solution</h2>
+            <p class="section-description">
+              With our comprehensive national reach, VTH is equipped to support
+              your logistics requirements across Australia. No matter where your
+              business takes you, we are here to ensure timely and reliable
+              transport solutions.
+            </p>
           </div>
         </section>
 
